@@ -1,0 +1,57 @@
+<h1>Héroe <small>Nombre del heroe</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/heroes">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form #formu='ngForm' (ngSubmit)="guardar(formu)">
+
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="FireBase ID" name="id" [(ngModel)]="heroe.id">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" name="nombre" [(ngModel)]="heroe.nombre">
+            </div>
+
+            <div class="form-group">
+                <label>Superpoder</label>
+                <input type="text" class="form-control" placeholder="Superpoder" name="poder" [(ngModel)]="heroe.poder">
+            </div>
+
+            <div class="form-group">
+                <label>Vivo/Muerto</label>
+                <br>
+                <button *ngIf="heroe.vivo" (click)="heroe.vivo = !heroe.vivo" class="btn btn-outline-success w-50" type="button">
+                    <i class="fa fa-smile-wink"></i>
+                    Vivo
+                </button>
+                <button *ngIf="!heroe.vivo" (click)="heroe.vivo = !heroe.vivo" class="btn btn-outline-danger w-50" type="button">
+                    <i class="fa fa-dizzy"></i>
+                    Muerto
+                </button>
+            </div>
+
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
